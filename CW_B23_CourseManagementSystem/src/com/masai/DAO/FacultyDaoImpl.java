@@ -148,7 +148,11 @@ public class FacultyDaoImpl implements FacultyDao{
 	}
 
 	@Override
-	public void UpdatePassword(String username,String password) throws SomeThingWrongException {
+	public void UpdatePassword(String oldPassword,String newpassword) throws SomeThingWrongException, NoRecordFoundException {
+		
+		if(!isOldPasswordCorrect(oldPassword)) {
+			throw new NoRecordFoundException("Invalid old password!");
+		}
 		
 		Connection connection = null;
 		try {
@@ -156,19 +160,20 @@ public class FacultyDaoImpl implements FacultyDao{
 			connection = dbutils.connectTodatabase();
 			
 			//prepare the query
-			String QUERY = "UPDATE faculty SET password=? WHERE userName=?";
+			String QUERY = "UPDATE faculty SET password=? WHERE facultyid=?";
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(QUERY);
 			
 			//stuff the data in the query
-			ps.setString(1, username);
-			ps.setString(1, password);
+			ps.setString(1, newpassword);
+			ps.setInt(2, LoggedINFaculty.loggedInFacultyId);
 			
 			
 			//execute query
 			ps.executeUpdate();
 			System.out.println("Password Changed Succesfully");
 			}catch(SQLException sqlEx) {
+				sqlEx.printStackTrace();
 			//code to log the error in the file
 			throw new SomeThingWrongException();
 			}finally {
@@ -183,17 +188,55 @@ public class FacultyDaoImpl implements FacultyDao{
 			
 		
 	}
+	
+	
+	public boolean isOldPasswordCorrect(String oldPassword) throws SomeThingWrongException {
+		Connection connection = null;
+		boolean isPasswordValid = false;
+		try {
+			//connect to database
+			connection = dbutils.connectTodatabase();
+			//prepare the query
+			String CHECK_PASSWORD_QUERY = "SELECT count(*) as count FROM faculty WHERE password = ? AND facultyid = ?";
+			
+			//get the prepared statement object
+			PreparedStatement ps = connection.prepareStatement(CHECK_PASSWORD_QUERY);
+			
+			//stuff the data in the query
+			ps.setString(1, oldPassword);
+			ps.setInt(2, LoggedINFaculty.loggedInFacultyId);
+			
+			//execute query
+			ResultSet resultSet = ps.executeQuery();
+			resultSet.next();
+			
+			isPasswordValid = resultSet.getInt("count") == 1;
+		}catch(SQLException sqlEx) {
+			sqlEx.printStackTrace();
+			//code to log the error in the file
+			throw new SomeThingWrongException();
+		}finally {
+			try {
+				//close the exception
+				dbutils.closeConnection(connection);				
+			}catch(SQLException sqlEX) {
+				throw new SomeThingWrongException();
+			}
+		}
+		return isPasswordValid;
+	}
 
 	
 	
 	@Override
+	
 	public void loginFaculty(String username, String password) throws SomeThingWrongException, NoRecordFoundException {
 		Connection connection = null;
 		try {
 			//connect to database
 			connection = dbutils.connectTodatabase();
 			//prepare the query
-			String LOGIN_QUERY = "SELECT * FROM faculty WHERE username = ? AND password = ?";
+			String LOGIN_QUERY = "SELECT facultyid FROM faculty WHERE username = ? AND password = ?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(LOGIN_QUERY);
@@ -206,15 +249,13 @@ public class FacultyDaoImpl implements FacultyDao{
 			ResultSet resultSet = ps.executeQuery();
 			if(dbutils.isResultSetEmpty(resultSet)) {
 				throw new NoRecordFoundException("Invalid Username and Password");
-			} else {
-				
-				System.out.println("Welcome " + username);
-				
 			}
 			
+			System.out.println("Welcome " + username);
+	
 			//you are here means username and password combination is correct
 			resultSet.next();
-
+			LoggedINFaculty.loggedInFacultyId = resultSet.getInt("facultyid");
 		}catch(SQLException sqlEx) {
 			//code to log the error in the file
 			throw new SomeThingWrongException();
@@ -231,6 +272,13 @@ public class FacultyDaoImpl implements FacultyDao{
 		
 	}
 
+		
+	}
+
+	@Override
+	public void logout() {
+		
+		LoggedINFaculty.loggedInFacultyId = 0;
 		
 	}
 	

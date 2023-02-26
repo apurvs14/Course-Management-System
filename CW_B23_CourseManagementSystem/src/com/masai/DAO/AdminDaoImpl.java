@@ -10,7 +10,7 @@ import com.masai.exception.SomeThingWrongException;
 
 
 
-public class AminDaoImpl implements AdminDao {
+public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public void loginAdmin(String username, String password) throws SomeThingWrongException{
@@ -57,4 +57,5 @@ public class AminDaoImpl implements AdminDao {
 	}
 
 }
+	
 }
