@@ -13,13 +13,14 @@ import com.masai.exception.SomeThingWrongException;
 public class CourseDaoImpl implements CourseDao {
 
 	public void addCourse(Course course) throws SomeThingWrongException {
+			
 		
 		Connection connection = null;
 		try {
 			//connect to database
 			connection = dbutils.connectTodatabase();
 			//prepare the query
-			String INSERT_QUERY = "INSERT INTO course (course_id, course_name,fee,course_description) VALUES (?, ?,?,?)";
+			String INSERT_QUERY = "INSERT INTO course (courseid, coursename,fee,coursedesc) VALUES (?, ?,?,?)";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
@@ -57,7 +58,7 @@ public class CourseDaoImpl implements CourseDao {
 			connection = dbutils.connectTodatabase();
 			
 			//prepare the query
-			String UPDATE_QUERY = "UPDATE course SET course_name = ?,fee = ?,course_description = ? WHERE course_id = ?";
+			String UPDATE_QUERY = "UPDATE course SET coursename = ?,fee = ?,coursedesc = ? WHERE courseid = ?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(UPDATE_QUERY);
@@ -93,7 +94,7 @@ public class CourseDaoImpl implements CourseDao {
 			//connect to database
 			connection = dbutils.connectTodatabase();
 			//prepare the query
-			String SELECT_QUERY = "SELECT * FROM course WHERE course_id = ?";
+			String SELECT_QUERY = "SELECT * FROM course WHERE courseid = ?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
@@ -107,10 +108,10 @@ public class CourseDaoImpl implements CourseDao {
 			}
 			resultSet.next();
 			course = new CourseImpl();
-			course.setCourseId(resultSet.getInt("course_id"));
-			course.setCourseName(resultSet.getString("course_name"));
+			course.setCourseId(resultSet.getInt("courseid"));
+			course.setCourseName(resultSet.getString("coursename"));
 			course.setFee(resultSet.getDouble("fee"));
-			course.setCourseDescription(resultSet.getString("course_description"));
+			course.setCourseDescription(resultSet.getString("coursedesc"));
 			
 		}catch(SQLException sqlEx) {
 			//code to log the error in the file

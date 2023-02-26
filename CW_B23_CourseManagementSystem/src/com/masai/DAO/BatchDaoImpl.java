@@ -63,8 +63,7 @@ public class BatchDaoImpl implements BatchDao{
 			connection = dbutils.connectTodatabase();
 			
 			//prepare the query
-			String UPDATE_QUERY = "UPDATE course SET"
-					+ " courseid = ?,facultyid = ?,number_of_students = ?,startdate = ?,durationdays = ? WHERE batchid = ?";
+			String UPDATE_QUERY = "UPDATE batch SET courseid = ?,facultyid = ?,number_of_students = ?,startdate = ?,durationdays = ? WHERE batchid = ?";
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(UPDATE_QUERY);
 			

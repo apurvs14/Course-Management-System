@@ -105,7 +105,6 @@ public class ProjectUIMain {
 		
 		System.out.println("1. View course plan");
 		System.out.println("2. Update/Change password");
-//		System.out.println("3. Fill day wise planner");
 		System.out.println("0. Logout");
 		
 	}

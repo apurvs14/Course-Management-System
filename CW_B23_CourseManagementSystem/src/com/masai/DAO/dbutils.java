@@ -4,20 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class dbutils {
 
-	static final String url;
-	static final String username;
-	static final String password;
+//	static final String url;
+//	static final String username;
+//	static final String password;
 	
 	static {
 //		reading credentials from property file
-		ResourceBundle bundle = ResourceBundle.getBundle("dbdetails");
-		url = bundle.getString("url");
-		username = bundle.getString("username");
-		password = bundle.getString("password");
+//		ResourceBundle bundle = ResourceBundle.getBundle("dbdetails");
+//		url = bundle.getString("url");
+//		username = bundle.getString("username");
+//		password = bundle.getString("password");
 		
 		try {
 			
@@ -31,6 +30,10 @@ public class dbutils {
 	}
 	
 	static Connection connectTodatabase() throws SQLException {
+		
+		String url = "jdbc:mysql://localhost/cw_project";
+		String username = "root";
+		String password = "root";
 		
 		return DriverManager.getConnection(url,username,password);
 		

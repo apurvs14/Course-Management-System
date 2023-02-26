@@ -295,7 +295,7 @@ public class AdminMethodsUI {
 				int daynumber = scanner.nextInt();
 				System.out.print("Enter topic ");
 				String topic = scanner.next();
-				System.out.print("Enter status true - if completed\nfalse - if pending");
+				System.out.print("Enter status true - if completed\nEnter status false - if pending ");
 				boolean status = scanner.nextBoolean();
 				
 				

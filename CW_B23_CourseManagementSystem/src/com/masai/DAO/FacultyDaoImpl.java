@@ -63,7 +63,7 @@ public class FacultyDaoImpl implements FacultyDao{
 			connection = dbutils.connectTodatabase();
 			
 			//prepare the query
-			String UPDATE_QUERY = "UPDATE course SET "
+			String UPDATE_QUERY = "UPDATE faculty SET "
 					+ "facultyname = ?,facultyaddress = ?,mobile = ?,email = ?,userName = ?,password = ? WHERE facultyid = ?";
 			
 			//get the prepared statement object
@@ -103,7 +103,7 @@ public class FacultyDaoImpl implements FacultyDao{
 			//connect to database
 			connection = dbutils.connectTodatabase();
 			//prepare the query
-			String SELECT_QUERY = "SELECT * FROM course WHERE facultyid = ?";
+			String SELECT_QUERY = "SELECT * FROM faculty WHERE facultyid = ?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
@@ -236,7 +236,7 @@ public class FacultyDaoImpl implements FacultyDao{
 			//connect to database
 			connection = dbutils.connectTodatabase();
 			//prepare the query
-			String LOGIN_QUERY = "SELECT facultyid FROM faculty WHERE username = ? AND password = ?";
+			String LOGIN_QUERY = "SELECT facultyid FROM faculty WHERE userName = ? AND password = ?";
 			
 			//get the prepared statement object
 			PreparedStatement ps = connection.prepareStatement(LOGIN_QUERY);
