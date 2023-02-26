@@ -2,10 +2,7 @@ package com.masai.UI;
 
 import java.util.Scanner;
 
-import com.masai.DAO.BatchDao;
-import com.masai.DAO.BatchDaoImpl;
-import com.masai.DAO.CourseDao;
-import com.masai.DAO.CourseDaoImpl;
+
 import com.masai.DAO.FacultyDao;
 import com.masai.DAO.FacultyDaoImpl;
 import com.masai.exception.NoRecordFoundException;
@@ -13,15 +10,15 @@ import com.masai.exception.SomeThingWrongException;
 
 public class FacultyMethodsUI {
 	
-	private CourseDao courseDao;
+//	private CourseDao courseDao;
 	private Scanner scanner;
-	private BatchDao batchDao;
+//	private BatchDao batchDao;
 	private FacultyDao facultyDao;
 	
 	
 	public FacultyMethodsUI(Scanner scanner) {
-		batchDao = new BatchDaoImpl();
-		courseDao = new CourseDaoImpl();
+//		batchDao = new BatchDaoImpl();
+//		courseDao = new CourseDaoImpl();
 		facultyDao = new FacultyDaoImpl();
 		this.scanner = scanner;
 	}

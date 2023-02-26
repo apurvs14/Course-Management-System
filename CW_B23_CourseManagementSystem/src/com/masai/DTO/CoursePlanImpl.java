@@ -7,18 +7,9 @@ public class CoursePlanImpl implements CoursePlan {
 	int daynumber;
 	String topic;
 	boolean status;
-
+	
+	
 	public CoursePlanImpl() {};
-	
-//	public CoursePlanImpl(Batch batch) {
-//		
-//		batch = new BatchImpl();
-//		
-//		batch.getBatchId();
-//		
-//	};
-	
-
 	
 	public CoursePlanImpl(int planId, Batch batch, int daynumber, String topic, boolean status) {
 		super();

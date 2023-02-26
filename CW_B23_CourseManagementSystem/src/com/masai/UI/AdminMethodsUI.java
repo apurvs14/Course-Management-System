@@ -284,32 +284,64 @@ public class AdminMethodsUI {
 		
 	}
 	
-//	public void CreateCoursePlan() {
-//		
-//				//code to take input Batch details
-//				System.out.print("Enter PlanId ");
-//				int planId = scanner.nextInt();
-//				System.out.print("Enter BatchId ");
-//				int BatchId = scanner.nextInt();
-//				System.out.print("Enter Day Number ");
-//				int daynumber = scanner.nextInt();
-//				System.out.print("Enter status true - if completed\nfalse - if pending");
-//				boolean status = scanner.nextBoolean();
-//				
-//				
-//				//create object for batch with all details
-//				CoursePlanDao CoursePlan = new CoursePlanDaoImpl();
-//				CoursePlan.setPlanId();
-////				CoursePlan CoursePlan = new CoursePlanImpl();
-//				
-//				try {
-//					courseplanDao.addCoursePlan(CoursePlan);
-//					System.out.println("Batch added successfully");
-//				}catch(SomeThingWrongException ex) {
-//					System.out.println(ex);
-//				}
-//		
-//	}
+	public void CreateCoursePlan() {
+		
+				//code to take input Batch details
+				System.out.print("Enter PlanId ");
+				int planId = scanner.nextInt();
+				System.out.print("Enter BatchId ");
+				int BatchId = scanner.nextInt();
+				System.out.print("Enter Day Number ");
+				int daynumber = scanner.nextInt();
+				System.out.print("Enter topic ");
+				String topic = scanner.next();
+				System.out.print("Enter status true - if completed\nfalse - if pending");
+				boolean status = scanner.nextBoolean();
+				
+				
+				//create object for batch with all details
+				
+				CoursePlan courseplan = new CoursePlanImpl(planId,new BatchImpl(BatchId),daynumber,topic,status);
+				
+				
+				try {
+					courseplanDao.addCoursePlan(courseplan);
+					System.out.println("Batch added successfully");
+				}catch(SomeThingWrongException ex) {
+					System.out.println(ex);
+				}
+		
+	}
+	
+	public void UpdateCoursePlan() {
+		
+		//code to take input Batch details
+		System.out.print("Enter PlanId ");
+		int planId = scanner.nextInt();
+		System.out.print("Enter BatchId ");
+		int BatchId = scanner.nextInt();
+		System.out.print("Enter Day Number ");
+		int daynumber = scanner.nextInt();
+		System.out.print("Enter topic ");
+		String topic = scanner.next();
+		System.out.print("Enter status true - if completed\nfalse - if pending");
+		boolean status = scanner.nextBoolean();
+		
+		
+		//create object for batch with all details
+		
+		CoursePlan courseplan = new CoursePlanImpl(planId,new BatchImpl(BatchId),daynumber,topic,status);
+		
+		
+		try {
+			courseplanDao.UpdateCoursePlan(courseplan);
+			System.out.println("Batch added successfully");
+		}catch(SomeThingWrongException |NoRecordFoundException ex) {
+			System.out.println(ex);
+		}
+
+}
+	
 	
 	public void ViewTheCoursePlan() {
 		//code to take input Batch details

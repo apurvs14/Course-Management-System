@@ -1,5 +1,6 @@
 package com.masai.exception;
 
+@SuppressWarnings("serial")
 public class SomeThingWrongException extends Exception {
 
 	@Override

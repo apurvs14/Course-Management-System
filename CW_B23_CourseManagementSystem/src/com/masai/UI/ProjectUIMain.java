@@ -68,12 +68,22 @@ public class ProjectUIMain {
 				case 10:
 					admin.allotFaculty();
 					break;
+				case 11:
+					admin.CreateCoursePlan();
+					break;
+				case 12:
+					admin.UpdateCoursePlan();
+					break;
+				case 13:
+					admin.ViewTheCoursePlan();
+					break;
 					
 				default:
 					System.out.println("Invalid Selection, try again");
 			}
 		}while(choice != 0);
 	}
+	
 	
 	
 	static void adminLogin(Scanner sc) {
@@ -91,7 +101,7 @@ public class ProjectUIMain {
 	
 	
 	
-static void displayfacultyMenu(){
+	static void displayfacultyMenu(){
 		
 		System.out.println("1. View course plan");
 		System.out.println("2. Update/Change password");

@@ -14,11 +14,11 @@ public class BatchImpl implements Batch {
 	
 	public BatchImpl() {}
 	
-//	public BatchImpl(int batchId) {
-//		
-//		this.batchId = batchId;
-//		
-//	}
+	public BatchImpl(int batchId) {
+		
+		this.batchId = batchId;
+		
+	}
 	
 	public BatchImpl(int batchId, Faculty faculty,Course course, int numberofStudents, LocalDate batchstartDate, int duration) {
 		super();
