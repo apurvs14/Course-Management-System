@@ -72,8 +72,9 @@ public class BatchImpl implements Batch {
 
 	@Override
 	public String toString() {
-		return "batchId=" + batchId + ", courseId=" + course.getCourseId() + ", facultyId=" + faculty.getFacultyid() + ", numberofStudents="
-				+ numberofStudents + ", batchstartDate=" + batchstartDate + ", duration=" + duration;
+		
+		return "-----------------------------\n Batch ID : " + batchId + ",\n Course ID : " + course.getCourseId() + ",\n Faculty ID : " + faculty.getFacultyid() + ",\n Number Of Students : "
+				+ numberofStudents + ",\n Batch Start Date : " + batchstartDate + ",\n Duration : " + duration +"\n-----------------------------";
 	}
 	
 

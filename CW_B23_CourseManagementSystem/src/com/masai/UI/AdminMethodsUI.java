@@ -82,6 +82,7 @@ public class AdminMethodsUI {
 		try {
 			courseDao.UpdateCourse(course);
 			System.out.println("Course Updated successfully");
+			
 		}catch(SomeThingWrongException | NoRecordFoundException ex) {
 			System.out.println(ex);
 		}
@@ -148,7 +149,7 @@ public class AdminMethodsUI {
 		int FacultyId = scanner.nextInt();
 		System.out.print("Enter Number of Students ");
 		int TotalStudents = scanner.nextInt();
-		System.out.print("Enter Batch start date ");
+		System.out.print("Enter Batch start date in YYYY-MM-DD format ");
 		LocalDate StartDate = LocalDate.parse(scanner.next());
 		System.out.print("Enter Duration in days");
 		int Duration = scanner.nextInt();
@@ -276,7 +277,7 @@ public class AdminMethodsUI {
 		
 		try {
 			batchDao.allocateFacultyToBatch(Batchid,facultyid);
-			System.out.println("Faculty alloted successfully");
+			System.out.println("Faculty " + facultyid + " alloted to batch " + Batchid +  " successfully");
 		}catch(SomeThingWrongException ex) {
 			System.out.println(ex);
 		}
@@ -295,7 +296,7 @@ public class AdminMethodsUI {
 				int daynumber = scanner.nextInt();
 				System.out.print("Enter topic ");
 				String topic = scanner.next();
-				System.out.print("Enter status true - if completed\nEnter status false - if pending ");
+				System.out.print("Enter status, true if completed\nEnter status, false if pending ");
 				boolean status = scanner.nextBoolean();
 				
 				
@@ -324,7 +325,7 @@ public class AdminMethodsUI {
 		int daynumber = scanner.nextInt();
 		System.out.print("Enter topic ");
 		String topic = scanner.next();
-		System.out.print("Enter status true - if completed\nfalse - if pending");
+		System.out.print("Enter status, true if completed\nEnter status, false if pending ");
 		boolean status = scanner.nextBoolean();
 		
 		

@@ -7,16 +7,8 @@ import java.sql.SQLException;
 
 public class dbutils {
 
-//	static final String url;
-//	static final String username;
-//	static final String password;
 	
 	static {
-//		reading credentials from property file
-//		ResourceBundle bundle = ResourceBundle.getBundle("dbdetails");
-//		url = bundle.getString("url");
-//		username = bundle.getString("username");
-//		password = bundle.getString("password");
 		
 		try {
 			

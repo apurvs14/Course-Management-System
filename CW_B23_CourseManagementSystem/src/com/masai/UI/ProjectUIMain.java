@@ -11,22 +11,179 @@ public class ProjectUIMain {
 
 	
 	static void displayAdminMenu() {
+		System.out.println("---------------------------");
 		System.out.println("How can we help you today");
+		System.out.println("1.Courses Operations");
+		System.out.println("2.Batch Operations");
+		System.out.println("3.Faculty Operations");
+		System.out.println("4.CoursePlan Operations");
+		System.out.println("0.Exit");
+		System.out.println("---------------------------");
+	}
+	
+	static void coursedisplay() {
+		System.out.println("---------------------------");
 		System.out.println("1.Create a New Course");
 		System.out.println("2.Update details of a Course");
 		System.out.println("3.View details of a Course");
-		System.out.println("4.Create a New Batch");
-		System.out.println("5.Update details of a Batch");
-		System.out.println("6.View details of a Batch");
-		System.out.println("7.Create a New Faculty");
-		System.out.println("8.Update details of a Faculty");
-		System.out.println("9.View details of a Faculty");
-		System.out.println("10.Allocate Faculty to a batch");
-		System.out.println("11.Create a New CoursePlan");
-		System.out.println("12.Update details of a CoursePlan");
-		System.out.println("13.View details of a CoursePlan");
 		System.out.println("0.Exit");
+		System.out.println("---------------------------");
 	}
+	
+	static void coursefun() {
+		Scanner sc = new Scanner(System.in);
+		
+		int select = 0;
+		do {
+			coursedisplay();
+			select = sc.nextInt();
+			switch(select) {
+			case 0:
+				adminMenu(sc);
+				break;
+			case 1:
+				admin.addNewCourse();
+				break;
+			case 2:
+				admin.upadateCourse();
+				break;
+			case 3:
+				admin.ViewTheCourse();
+				break;
+			default:
+				System.out.println("Invalid Selection, try again");
+				System.out.println();
+			}
+			
+		} while(select!=0);
+		sc.close();
+		
+	}
+	
+	static void Batchdisplay() {
+		System.out.println("---------------------------");
+		System.out.println("1.Create a New Batch");
+		System.out.println("2.Update details of a Batch");
+		System.out.println("3.View details of a Batch");
+		System.out.println("0.Exit");
+		System.out.println("---------------------------");
+	}
+	
+	static void Batchfun() {
+		Scanner sc = new Scanner(System.in);
+		
+		int select = 0;
+		do {
+			Batchdisplay();
+			select = sc.nextInt();
+			switch(select) {
+			case 0:
+				adminMenu(sc);
+				break;
+			case 1:
+				admin.addNewBatch();
+				break;
+			case 2:
+				admin.updatetheBatch();
+				break;
+			case 3:
+				admin.ViewTheBatch();
+				break;
+			default:
+				System.out.println("Invalid Selection, try again");
+				System.out.println();
+			}
+			
+		} while(select!=0);
+		sc.close();
+		
+	}
+	
+	static void Facultydisplay() {
+		System.out.println("---------------------------");
+		System.out.println("1.Create a New Faculty");
+		System.out.println("2.Update details of a Faculty");
+		System.out.println("3.View details of a Faculty");
+		System.out.println("4.Allocate Faculty to a batch");
+		System.out.println("0.Exit");
+		System.out.println("---------------------------");
+	}
+	
+	static void Facultyfun() {
+		Scanner sc = new Scanner(System.in);
+		
+		int select = 0;
+		do {
+			Facultydisplay();
+			select = sc.nextInt();
+			switch(select) {
+			case 0:
+				adminMenu(sc);
+				break;
+			case 1:
+				admin.addNewFaculty();
+				break;
+			case 2:
+				admin.UpdateTheFaculty();
+				break;
+			case 3:
+				admin.ViewTheFaculty();
+				break;
+			case 4:
+				admin.allotFaculty();
+				break;
+			default:
+				System.out.println("Invalid Selection, try again");
+				System.out.println();
+			}
+			
+		} while(select!=0);
+		sc.close();
+		
+		
+	}
+	
+	static void CoursePlandisplay() {
+		System.out.println("---------------------------");
+		System.out.println("1.Create a New CoursePlan");
+		System.out.println("2.Update details of a CoursePlan");
+		System.out.println("3.View details of a CoursePlan");
+		System.out.println("0.Exit");
+		System.out.println("---------------------------");
+	}
+	
+	static void CoursePlanfun() {
+		Scanner sc = new Scanner(System.in);
+		
+		int select = 0;
+		do {
+			CoursePlandisplay();
+			select = sc.nextInt();
+			switch(select) {
+			case 0:
+				adminMenu(sc);
+				break;
+			case 1:
+				admin.CreateCoursePlan();
+				break;
+			case 2:
+				admin.UpdateCoursePlan();
+				break;
+			case 3:
+				admin.ViewTheCoursePlan();
+				break;
+			default:
+				System.out.println("Invalid Selection, try again");
+				System.out.println();
+			}
+			
+		} while(select!=0);
+		sc.close();
+		
+		
+	}
+	
+	
 	
 	static void adminMenu(Scanner sc) {
 		int choice = 0;
@@ -36,50 +193,23 @@ public class ProjectUIMain {
 			choice = sc.nextInt();
 			switch(choice) {
 				case 0:
-					System.out.println("Bye Bye admin");
+					System.out.println("Visit again admin");
 					break;
 				case 1:
-					admin.addNewCourse();
+					coursefun();
 					break;
 				case 2:
-					admin.upadateCourse();
+					Batchfun();
 					break;
 				case 3:
-					admin.ViewTheCourse();
+					Facultyfun();
 					break;
 				case 4:
-					admin.addNewBatch();
+					CoursePlanfun();
 					break;
-				case 5:
-					admin.updatetheBatch();
-					break;
-				case 6:
-					admin.ViewTheBatch();
-					break;
-				case 7:
-					admin.addNewFaculty();
-					break;
-				case 8:
-					admin.UpdateTheFaculty();
-					break;
-				case 9:
-					admin.ViewTheFaculty();
-					break;
-				case 10:
-					admin.allotFaculty();
-					break;
-				case 11:
-					admin.CreateCoursePlan();
-					break;
-				case 12:
-					admin.UpdateCoursePlan();
-					break;
-				case 13:
-					admin.ViewTheCoursePlan();
-					break;
-					
 				default:
 					System.out.println("Invalid Selection, try again");
+					System.out.println();
 			}
 		}while(choice != 0);
 	}
@@ -96,16 +226,18 @@ public class ProjectUIMain {
 			adminMenu(sc);
 		}else {
 			System.out.println("Invalid Username and Password");
+			System.out.println();
 		}
 	}
 	
 	
 	
 	static void displayfacultyMenu(){
-		
+		System.out.println("-----------------------------");
 		System.out.println("1. View course plan");
 		System.out.println("2. Update/Change password");
 		System.out.println("0. Logout");
+		System.out.println("-----------------------------");
 		
 	}
 	
@@ -134,6 +266,7 @@ public class ProjectUIMain {
 					break;
 				default:
 					System.out.println("Invalid Selection, try again");
+					System.out.println();
 			}
 		}while(LoggedINFaculty.loggedInFacultyId != 0);
 		
@@ -150,7 +283,9 @@ public class ProjectUIMain {
 		fac = new FacultyMethodsUI(sc);
 		int choice = 0;
 		do {
+			System.out.println("=========Welcome to the Course Monitoring System=========\nEnter your choice");
 			System.out.println("1. Admin Login\n2. Faculty Login\n0. Exit");
+			System.out.println("=========================================================");
 			choice = sc.nextInt();
 			switch(choice) {
 				case 0:
@@ -164,6 +299,7 @@ public class ProjectUIMain {
 					break;
 				default:
 					System.out.println("Invalid Selection, try again");
+					System.out.println();
 			}
 		}while(choice != 0);
 		sc.close();

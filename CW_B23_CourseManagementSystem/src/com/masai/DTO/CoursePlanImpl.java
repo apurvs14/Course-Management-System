@@ -51,8 +51,8 @@ public class CoursePlanImpl implements CoursePlan {
 	}
 	@Override
 	public String toString() {
-		return "planId=" + planId + ", batchId= " + batch.getBatchId() + ", daynumber=" + daynumber + ", topic=" + topic
-				+ ", status=" + status;
+		return "--------------------\n Plan ID : " + planId + ",\n Batch ID : " + batch.getBatchId() + ",\n Day Number : " + daynumber + ",\n Topic : " + topic
+				+ ",\n Status : " + status + "\n--------------------";
 	}
 	
 	
