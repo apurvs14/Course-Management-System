@@ -5,6 +5,11 @@
 
 Helps in keeping track of parallel running courses ,batch etc. 
 
+
+<img align="center" alt="Coding" width="100%" src="https://github.com/apurvs14/tested-request-4840/blob/main/ER_diagram.png">
+
+
+
 <h3 align="left">Domain Description:</h3>
 
 
