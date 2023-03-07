@@ -1,21 +1,26 @@
 # tested-request-4840
-<b>Course Management system<b>
 
-That Helps in keeping track of parallel running courses ,batch etc. 
+<h1 align="center">Course Management System</h1>
 
-Domain Description:
+
+Helps in keeping track of parallel running courses ,batch etc. 
+
+<h3 align="left">Domain Description:</h3>
+
 
 In an educational  Institute there are several courses running parallel  every day. For every course there are several batches at same/different time. Every course has a session wise/day wise schedule. It will be difficult for the Faculty Head to know the status of every batch i.e what is the session taught at each day in a batch.
 So the Automated Course Monitoring System will keep the records of all the courses,batches,faculties and the daywise update for every batch. It will also help the Faculty Head to maintain the course plan .
 
-Types of users:
+
+
+<h3 align="left">Types of users:</h3>
 
 •	Administrator.
 
 •	Faculty
 
 
-Role of Administrator:
+<h3 align="left">Role of Administrator:</h3>
 
 •	Login to his account
 
@@ -33,7 +38,8 @@ Role of Administrator:
 
 •	 Generate Report for every batch.
 
-Role of Faculty:
+
+<h3 align="left">Role of Faculty:</h3>
 
 •	Login to his/her account
 
@@ -43,16 +49,20 @@ Role of Faculty:
 
 •	Update his/her password.
 
-Tables:
 
 
-Admin:
+<h2 align="left">Tables:</h2>
+
+
+<h3 align="left">Admin:</h3>
 
 •	username
 
 •	password:
 
-Faculty:
+
+<h3 align="left">Faculty:</h3>
+
 
 •	facultyid
 
@@ -69,7 +79,7 @@ Faculty:
 •	password
 
 
-Course:
+<h3 align="left">Course:</h3>
 
 •	coursed
 
@@ -80,7 +90,7 @@ Course:
 •	courseDescription
 
 
-Batch:
+<h3 align="left">Batch:</h3>
 
 •	batchId:
 
@@ -95,7 +105,7 @@ Batch:
 •	duration 
 
 
-CoursPlan:
+<h3 align="left">CoursePlan:</h3>
 
 •	planId
 
